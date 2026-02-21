@@ -1,0 +1,34 @@
+- name: Platform base configuration
+  hosts: platform
+  become: true
+
+  tasks:
+    - name: Install base packages
+      apt:
+        name:
+          - curl
+          - git
+          - ufw
+        state: present
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Add ubuntu user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Allow SSH through firewall
+      ufw:
+        rule: allow
+        name: OpenSSH
+
+    - name: Enable firewall
+      ufw:
+        state: enabled
+
