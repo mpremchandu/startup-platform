@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/startup-platform-app:latest chapter3-docker/app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/startup-platform-app:latest startup-platform/chapter3-docker/app
 
       - name: Push Docker image
         run: |
