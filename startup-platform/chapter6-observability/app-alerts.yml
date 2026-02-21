@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: startup-app-alerts
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: startup-app.rules
+    rules:
+    - alert: StartupAppCrashLoop
+      expr: increase(kube_pod_container_status_restarts_total{container="app"}[5m]) > 3
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Startup app restarting too often"
+
