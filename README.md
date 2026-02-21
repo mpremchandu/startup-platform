@@ -141,26 +141,8 @@ The platform explicitly handles common real-world failures:
 
 The goal is not zero failure — it is **controlled failure**.
 
----
 
-## What This Project Is Not
 
-- Not a tutorial copy
-- Not a “tool showcase”
-- Not a multi-cloud abstraction
-- Not enterprise-scale Kubernetes
-
-This is intentionally **focused**, **opinionated**, and **realistic**.
-
----
-
-## How to Talk About This Project (Interviews)
-
-Instead of listing tools, describe outcomes:
-
-> “I built an internal platform that provisions infrastructure with Terraform, configures hosts with Ansible, ships applications via CI-built Docker images, runs them on Kubernetes with resource limits, health probes, autoscaling, and full observability using Prometheus and Grafana.”
-
-That framing matters.
 
 ---
 
